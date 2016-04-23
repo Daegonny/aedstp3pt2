@@ -9,6 +9,19 @@ struct WORD createWord(char *letters, int length, int line){
     return w;
 }
 
+int isStringEmpty(char *string, int length){
+    int flag = 1;
+    if(length > 0){
+        int i;
+        char c;
+        for(i = 0; i < length; i++){
+            if(string[i] != ' ')
+                flag = 0;
+        }
+    }
+    return flag;
+}
+
 void printWord(struct WORD w){
     int i = 0;
     for(i = 0; i < w.length; i++){
