@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include "word.h"
+#include "queue.h"
 
 struct WORD createWord(char *letters, int length, int line){
-    struct WORD w;
-    w.letters = letters;
-    w.length = length;
-    w.line = line;
-    return w;
+    struct WORD word;
+    word.letters = letters;
+    word.length = length;
+    word.line = line;
+    return word;
 }
 
 int isStringEmpty(char *string, int length){
@@ -33,7 +34,7 @@ void printWord(struct WORD w){
     printf("%d\n", w.line);
 }
 
-void readWordFromFile(FILE *fp){
+void readWordFromFile(FILE *fp, struct QUEUE *queue){
     if(fp == NULL){
         printf("%s\n", "Fail to open file!");
     }
@@ -48,7 +49,8 @@ void readWordFromFile(FILE *fp){
             }
             else{
                 if(!isStringEmpty(chars, i)){
-                    printWord(createWord(chars, i, line));
+                    pushQueue(createWord(chars, i, line), queue);
+                    printWord((*queue).words[(*queue).last]);
                 }
                 if(c == '\n')
                     line++;

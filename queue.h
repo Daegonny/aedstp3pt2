@@ -19,10 +19,6 @@ int isFullQueue(struct QUEUE *queue);
 
 void pushQueue(struct WORD word, struct QUEUE *queue);
 
-void pushQueue(struct WORD word, struct QUEUE *queue);
-
 void popQueue(struct QUEUE *queue);
-
-struct WORD getFirstQueue(struct QUEUE *queue);
 
 #endif

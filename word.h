@@ -1,5 +1,6 @@
 #ifndef _WORD_H
 #define _WORD_H
+#include "queue.h"
 
 typedef struct WORD
 {
@@ -14,6 +15,6 @@ int isStringEmpty(char *string, int length);
 
 void printWord(struct WORD w);
 
-void readWordFromFile(FILE *fp);
+void readWordFromFile(FILE *fp, struct QUEUE *queue);
 
 #endif
