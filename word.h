@@ -6,7 +6,6 @@ typedef struct WORD
     char *letters;
     int length;
     int line;
-    struct WORD *next;
 }WORD;
 
 struct WORD createWord(char *letters, int length, int line);

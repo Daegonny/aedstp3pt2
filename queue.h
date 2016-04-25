@@ -9,9 +9,13 @@ typedef struct QUEUE
     struct WORD *words;
 }QUEUE;
 
+struct QUEUE createQueue(struct WORD *words, int size);
+
 void printQueue(struct QUEUE *queue);
 
 int isEmptyQueue(struct QUEUE *queue);
+
+int isFullQueue(struct QUEUE *queue);
 
 void pushQueue(struct WORD word, struct QUEUE *queue);
 
