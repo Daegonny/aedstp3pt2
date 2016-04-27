@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include "word.h"
 #include "queue.h"
+#define SPACE 30 //espaço para imprimir na tela
+#define TAMSTRING 50 //tamanho máximo da string
 
 struct WORD createWord(char string[50], int length, int line){
     struct WORD word;
@@ -15,7 +17,7 @@ void readWordFromFile(FILE *fp, struct QUEUE *queue){
         printf("%s\n", "Fail to open file!");
     }
     else{
-        char chars[50];
+        char chars[TAMSTRING];
         char c;
         int line = 1;
         int i = 0;
@@ -40,7 +42,7 @@ void readWordFromFile(FILE *fp, struct QUEUE *queue){
 void printWord(struct WORD word){
     int i = 0;
     printf("%s",word.string );
-    for(i = (30 - word.length); i > 0; i--){
+    for(i = (SPACE - word.length); i > 0; i--){
         printf(" ");
     }
     printf("%d\n", word.line);
