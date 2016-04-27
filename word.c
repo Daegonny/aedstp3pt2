@@ -47,7 +47,7 @@ void printWord(struct WORD word){
     }
     printf("%d\n", word.line);
 }
-
+// códigos ascii para números e letras maiúsculas/minúsculas
 int isValidChar(char c){
     return
         (c >= 48 && c <= 57) ||

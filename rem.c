@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
     QUEUE queue = createQueue(words, TAMQUEUE); //inicia uma fila vazia
 
     FILE *fp;
-    char path[] = "other.txt"; //define o arquivo de texto
+    char path[] = "nietzsche.txt"; //define o arquivo de texto
     fp = fopen(path, "r+"); //abre o arquivo de texto
 
     readWordFromFile(fp, &queue); //lê palavras do arquivo e as adiciona na fila
