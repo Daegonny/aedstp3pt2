@@ -3,21 +3,20 @@
 #include "word.h"
 
 
-struct QUEUE createQueue(struct WORD *words, int size){
+struct QUEUE createQueue(struct WORD *words, int maxSize){
     struct QUEUE queue;
     queue.first = 0;
     queue.last = 0;
     queue.words = words;
-    queue.size = size;
+    queue.maxSize = maxSize;
     return queue;
 }
 
 void printQueue(struct QUEUE *queue){
     if(!isEmptyQueue(queue)){
-        int i;
-        struct WORD *aux = (*queue).words;
-        for(i = (*queue).first; i < (*queue).last; i++){
-           printWord(aux[i]);
+        while(!isEmptyQueue(queue)){
+            printWord((*queue).words[(*queue).first]);
+            popQueue(queue);
         }
     }
 }
@@ -27,18 +26,22 @@ int isEmptyQueue(struct QUEUE *queue){
 }
 
 int isFullQueue(struct QUEUE *queue){
-    return 0;
+    return (*queue).last == (*queue).maxSize;
 }
 
 void pushQueue(struct WORD word, struct QUEUE *queue){
     if(!isFullQueue(queue)){
-        (*queue).last = (*queue).last + 1;
         (*queue).words[(*queue).last] = word;
+        (*queue).last = (*queue).last + 1;
     }
 }
 
 void popQueue(struct QUEUE *queue){
     if(!isEmptyQueue(queue)){
+        int i;
+        for(i = 0; i < ((*queue).last -1); i++){
+            (*queue).words[i] = (*queue).words[i+1];
+        }
         (*queue).last = (*queue).last - 1;
     }
 }

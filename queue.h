@@ -5,11 +5,11 @@ typedef struct QUEUE
 {
     int first;
     int last;
-    int size;
+    int maxSize;
     struct WORD *words;
 }QUEUE;
 
-struct QUEUE createQueue(struct WORD *words, int size);
+struct QUEUE createQueue(struct WORD *words, int maxSize);
 
 void printQueue(struct QUEUE *queue);
 

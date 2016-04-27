@@ -11,12 +11,14 @@ typedef struct WORD
 
 struct WORD createWord(char string[50], int length, int line);
 
-int isStringEmpty(char *string, int length);
+void readWordFromFile(FILE *fp, struct QUEUE *queue);
 
 void printWord(struct WORD word);
 
-void copyString(char *from, char *to);
+int isValidChar(char c);
 
-void readWordFromFile(FILE *fp, struct QUEUE *queue);
+int isStringEmpty(char *string, int length);
+
+void copyString(char *from, char *to);
 
 #endif
