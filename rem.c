@@ -9,7 +9,7 @@ int main(int argc, char const *argv[]) {
     QUEUE queue = createQueue(words, size);
 
     FILE *fp;
-    char path[] = "text.txt";
+    char path[] = "other.txt";
     fp = fopen(path, "r+");
 
     readWordFromFile(fp, &queue);

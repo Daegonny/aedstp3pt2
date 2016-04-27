@@ -4,16 +4,18 @@
 
 typedef struct WORD
 {
-    char *letters;
+    char string[50];
     int length;
     int line;
 }WORD;
 
-struct WORD createWord(char *letters, int length, int line);
+struct WORD createWord(char string[50], int length, int line);
 
 int isStringEmpty(char *string, int length);
 
-void printWord(struct WORD w);
+void printWord(struct WORD word);
+
+void copyString(char *from, char *to);
 
 void readWordFromFile(FILE *fp, struct QUEUE *queue);
 

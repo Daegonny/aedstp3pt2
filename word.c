@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <string.h>
 #include "word.h"
 #include "queue.h"
 
-struct WORD createWord(char *letters, int length, int line){
+struct WORD createWord(char string[50], int length, int line){
     struct WORD word;
-    word.letters = letters;
+    //copyString(string, word.string);
+    strcpy(word.string, string);
     word.length = length;
     word.line = line;
     return word;
@@ -14,7 +16,6 @@ int isStringEmpty(char *string, int length){
     int flag = 1;
     if(length > 0){
         int i;
-        char c;
         for(i = 0; i < length; i++){
             if(string[i] != ' ')
                 flag = 0;
@@ -23,15 +24,23 @@ int isStringEmpty(char *string, int length){
     return flag;
 }
 
-void printWord(struct WORD w){
-    int i = 0;
-    for(i = 0; i < w.length; i++){
-        printf("%c", w.letters[i]);
+void copyString(char *from, char *to){
+    while(*from != '\0'){
+        *to = *from;
+        from++;
+        to++;
     }
-    for(i = (25 - w.length); i > 0; i--){
+    *to = '\n';
+    printf("%s\n", to);
+}
+
+void printWord(struct WORD word){
+    int i = 0;
+    printf("%s",word.string );
+    for(i = (30 - word.length); i > 0; i--){
         printf(" ");
     }
-    printf("%d\n", w.line);
+    printf("%d\n", word.line);
 }
 
 void readWordFromFile(FILE *fp, struct QUEUE *queue){
@@ -39,7 +48,7 @@ void readWordFromFile(FILE *fp, struct QUEUE *queue){
         printf("%s\n", "Fail to open file!");
     }
     else{
-        char chars[101];
+        char chars[50];
         char c;
         int line = 1;
         int i = 0;
@@ -48,9 +57,9 @@ void readWordFromFile(FILE *fp, struct QUEUE *queue){
                 chars[i] = c;
             }
             else{
+                chars[i] = '\0';
                 if(!isStringEmpty(chars, i)){
                     pushQueue(createWord(chars, i, line), queue);
-                    printWord((*queue).words[(*queue).last]);
                 }
                 if(c == '\n')
                     line++;

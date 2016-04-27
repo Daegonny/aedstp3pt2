@@ -16,9 +16,9 @@ void printQueue(struct QUEUE *queue){
     if(!isEmptyQueue(queue)){
         int i;
         struct WORD *aux = (*queue).words;
-        //for(i = (*queue).first; i < (*queue).last; i++){
-        //    printWord(aux[i]);
-        //}
+        for(i = (*queue).first; i < (*queue).last; i++){
+           printWord(aux[i]);
+        }
     }
 }
 

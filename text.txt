@@ -1,5 +1,3 @@
 Its just a simple text to be
-
 used as test in the AEDS second
-
-exercise program.
+exercise program
